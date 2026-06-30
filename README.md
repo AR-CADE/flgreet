@@ -75,5 +75,7 @@ command = "cage -s -d -m last -- YOUR_PATH/flgreet/flgreet"
     $ sudo usermod -d $GREETER_HOME_PATH greeter
 ```
 
+- GTK and C++ parts are inspired by [wf-shell](https://github.com/WayfireWM/wf-shell)
+
 # contact
 arm-cade@proton.me
