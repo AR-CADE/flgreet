@@ -36,6 +36,26 @@ jobs:
       -  run: flutter pub get
       -  run: flutter test
 
+  test_cpp_code_style:
+    name: "Check CPP code style with uncrustify"
+    runs-on: ubuntu-latest
+    steps:
+    - run: sudo apt-get update
+    - run: sudo apt-get install -y git cmake gcc make
+    - name: Build Uncrustify
+      uses: actions/checkout@v6
+      with:
+        repository: ammen99/uncrustify
+        path: uncrustify
+    - run: cd uncrustify && mkdir build && cd build && cmake .. && make && cd ../..
+    - name: Run Uncrustify Check
+      uses: actions/checkout@v6
+      with:
+        path: flgreet
+    - run: cd flgreet && wget https://raw.githubusercontent.com/AR-CADE/flgreet/main/uncrustify.ini
+    - run: cd flgreet && git ls-files | grep "hpp$\|cpp$" | xargs ../uncrustify/build/uncrustify -c uncrustify.ini --no-backup --replace
+    - run: cd flgreet && git diff --exit-code
+
 #  build_linux:
 #    name: Build Linux executable
 #    runs-on: ubuntu-latest
