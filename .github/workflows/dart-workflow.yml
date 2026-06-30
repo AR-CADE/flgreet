@@ -1,0 +1,57 @@
+name: Dart CI
+
+on: [push, pull_request]
+jobs:
+  format:
+    name: Format
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: subosito/flutter-action@v2
+        with:
+          channel: 'stable'
+      -  run: flutter pub get
+      -  run: dart fix --apply
+      -  run: dart format --set-exit-if-changed .
+  
+  analyse:
+    name: Analyse
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: subosito/flutter-action@v2
+        with:
+          channel: 'stable'
+      -  run: flutter pub get
+      -  run: flutter analyze
+
+  test:
+    name: Test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: subosito/flutter-action@v2
+        with:
+          channel: 'stable'
+      -  run: flutter pub get
+      -  run: flutter test
+
+  build_linux:
+    name: Build Linux executable
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: subosito/flutter-action@v2
+        with:
+          channel: 'stable'
+      -  run: flutter pub get
+      -  run: flutter build linux
+      - name: Package Linux Build
+        run: |
+          mkdir -p dist
+          mv build/linux/x64/release/bundle dist/flgreet
+      - uses: actions/upload-artifact@v4
+        with:
+          name: flgreet-linux
+          path: dist/
+  
