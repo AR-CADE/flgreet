@@ -3,7 +3,7 @@
 A Flutter based greeter inspired by [gtkgreet](https://git.sr.ht/~kennylevinsen/gtkgreet).
 
 
-[![screenshot](./assets/flgreet.png?raw=true "flgreet")](./assets/flgreet.png?raw=true "flgreet")
+[![screenshot](https://github.com/AR-CADE/flgreet/blob/main/assets/flgreet.png?raw=true "flgreet")](https://github.com/AR-CADE/flgreet/blob/main/assets/flgreet.png?raw=true)
 
 ## Dependencies
 
@@ -14,6 +14,18 @@ Build dependencies
 - [flutter](https://docs.flutter.dev/install/)
 - [gtk-layer-shell](https://github.com/wmww/gtk-layer-shell/)
 - [gtkmm-3.0](https://github.com/GNOME/gtkmm/)
+
+## Usage
+```
+flgreet: 1.0.0
+Usage: flgreet [OPTION]...
+
+ -h,  --help              print this help
+ -m,  --multi-monitors    (true/false) specify whether multi monitors support should be enabled or disabled. 
+                          (only takes effect when Layer Shell is enabled; enabled by default)
+ -l,  --layer-shell       enable Layer Shell support
+ -v,  --version           print version and exit
+```
 
 ## Getting Started
 
@@ -37,11 +49,14 @@ then edit `/etc/greetd/config.toml`:
 ....
 
 [default_session]
-command = "cage -s -d -- YOUR_PATH/flgreet/flgreet"
+command = "cage -s -d -m last -- YOUR_PATH/flgreet/flgreet"
 ...
 ```
 
-# Need permanant storage to re-hydrate your widget ?
+# note
+- parts of UI template and tests are AI generated (grok)
+
+- need permanant storage to re-hydrate your widget ? :
 
 ```
     $ GREETER_HOME_PATH=/home/greeter
@@ -59,10 +74,6 @@ command = "cage -s -d -- YOUR_PATH/flgreet/flgreet"
     $ sudo chmod -R 770 $GREETER_HOME_PATH
     $ sudo usermod -d $GREETER_HOME_PATH greeter
 ```
-
-# note
-parts of UI template and tests are AI generated (grok)
-
 
 # contact
 arm-cade@proton.me
