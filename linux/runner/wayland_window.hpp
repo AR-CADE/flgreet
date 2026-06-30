@@ -6,7 +6,6 @@
 
 struct WaylandOutput;
 struct AppConfig;
-// #define ENABLE_LAYER_SHELL
 
 class WaylandWindow : public Gtk::Window {
 public:

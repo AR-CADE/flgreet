@@ -1,9 +1,7 @@
 #ifndef SHELL_APP_H
 #define SHELL_APP_H
 
-#include <map>
 #include <memory>
-#include <set>
 #include <string>
 
 #include <gdk/gdkwayland.h>

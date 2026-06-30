@@ -5,7 +5,6 @@
 #include <memory>
 
 #include "shell_app.hpp"
-#include <map>
 
 class PanelApp;
 
