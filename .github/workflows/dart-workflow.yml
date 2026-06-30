@@ -36,22 +36,22 @@ jobs:
       -  run: flutter pub get
       -  run: flutter test
 
-  build_linux:
-    name: Build Linux executable
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v6
-      - uses: subosito/flutter-action@v2
-        with:
-          channel: 'stable'
-      -  run: flutter pub get
-      -  run: flutter build linux
-      - name: Package Linux Build
-        run: |
-          mkdir -p dist
-          mv build/linux/x64/release/bundle dist/flgreet
-      - uses: actions/upload-artifact@v4
-        with:
-          name: flgreet-linux
-          path: dist/
+#  build_linux:
+#    name: Build Linux executable
+#    runs-on: ubuntu-latest
+#    steps:
+#      - uses: actions/checkout@v6
+#      - uses: subosito/flutter-action@v2
+#        with:
+#          channel: 'stable'
+#      -  run: flutter pub get
+#      -  run: flutter build linux
+#      - name: Package Linux Build
+#        run: |
+#          mkdir -p dist
+#          mv build/linux/x64/release/bundle dist/flgreet
+#      - uses: actions/upload-artifact@v4
+#        with:
+#          name: flgreet-linux
+#          path: dist/
   
