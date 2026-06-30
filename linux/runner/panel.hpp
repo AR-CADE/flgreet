@@ -8,36 +8,38 @@
 
 class PanelApp;
 
-class FlutterPanel {
-public:
-  FlutterPanel(WaylandOutput *output, PanelApp *panel);
+class FlutterPanel
+{
+  public:
+    FlutterPanel(WaylandOutput *output, PanelApp *panel);
 
-  wl_surface *get_wl_surface();
-  Gtk::Window &get_window();
-  void on_delete();
+    wl_surface *get_wl_surface();
+    Gtk::Window & get_window();
+    void on_delete();
 
-private:
-  class impl;
-  std::unique_ptr<impl> pimpl;
+  private:
+    class impl;
+    std::unique_ptr<impl> pimpl;
 };
 
-class PanelApp : public ShellApp {
-public:
-  FlutterPanel *panel_for_wl_output(const wl_output *output);
-  static PanelApp &get();
+class PanelApp : public ShellApp
+{
+  public:
+    FlutterPanel *panel_for_wl_output(const wl_output *output);
+    static PanelApp & get();
 
-  /* Starts the program. get() is valid afterward the first (and the only)
-   * call to create() */
-  static void create(int argc, char **argv);
-  ~PanelApp();
+    /* Starts the program. get() is valid afterward the first (and the only)
+     * call to create() */
+    static void create(int argc, char **argv);
+    ~PanelApp();
 
-  void handle_new_output(WaylandOutput *output) override;
-  void handle_output_removed(WaylandOutput *output) override;
+    void handle_new_output(WaylandOutput *output) override;
+    void handle_output_removed(WaylandOutput *output) override;
 
-private:
-  PanelApp(int argc, char **argv);
+  private:
+    PanelApp(int argc, char **argv);
 
-  class impl;
-  std::unique_ptr<impl> priv;
+    class impl;
+    std::unique_ptr<impl> priv;
 };
 #endif /* end of include guard: PANEL_H */

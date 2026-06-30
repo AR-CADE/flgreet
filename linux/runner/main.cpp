@@ -1,6 +1,7 @@
 #include "panel.hpp"
 
-int main(int argc, char **argv) {
-  PanelApp::create(argc, argv);
-  return 0;
+int main(int argc, char **argv)
+{
+    PanelApp::create(argc, argv);
+    return 0;
 }
