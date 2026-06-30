@@ -1,4 +1,4 @@
-#include "shell_app.h"
+#include "shell_app.hpp"
 #include <cstdlib>
 #include <gdk/gdkwayland.h>
 #include <glibmm/main.h>

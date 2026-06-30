@@ -4,7 +4,7 @@
 #include <gtkmm/window.h>
 #include <memory>
 
-#include "shell_app.h"
+#include "shell_app.hpp"
 #include <map>
 
 class PanelApp;

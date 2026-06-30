@@ -1,6 +1,6 @@
-#include "wayland_window.h"
+#include "wayland_window.hpp"
 
-#include "shell_app.h"
+#include "shell_app.hpp"
 #include <gdk/gdkwayland.h>
 #include <gtk-layer-shell/gtk-layer-shell.h>
 

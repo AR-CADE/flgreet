@@ -9,8 +9,8 @@
 #include <gtkmm/hvbox.h>
 #include <gtkmm/window.h>
 
-#include "panel.h"
-#include "wayland_window.h"
+#include "panel.hpp"
+#include "wayland_window.hpp"
 
 #include <string>
 

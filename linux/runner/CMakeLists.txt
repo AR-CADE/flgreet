@@ -7,10 +7,10 @@ project(runner LANGUAGES CXX)
 #
 # Any new source files that you add to the application should be added here.
 add_executable(${BINARY_NAME}
-  "wayland_window.cc"
-  "shell_app.cc"
-  "panel.cc"
-  "main.cc"
+  "wayland_window.cpp"
+  "shell_app.cpp"
+  "panel.cpp"
+  "main.cpp"
   "${FLUTTER_MANAGED_DIR}/generated_plugin_registrant.cc"
 )
 
